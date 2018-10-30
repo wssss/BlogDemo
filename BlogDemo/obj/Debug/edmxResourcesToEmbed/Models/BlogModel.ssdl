@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BlogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Articles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="200" />
+    <Property Name="ReadTimes" Type="int" />
+    <Property Name="Tags" Type="varchar" MaxLength="500" />
+    <Property Name="SimpleInfo" Type="varchar" MaxLength="500" />
+    <Property Name="Cont" Type="varchar(max)" />
+    <Property Name="MainPicUrl" Type="varchar" MaxLength="500" />
+    <Property Name="Source" Type="varchar" MaxLength="500" />
+    <Property Name="Type" Type="varchar" MaxLength="100" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="PubTime" Type="datetime" />
+    <Property Name="IsPub" Type="char" MaxLength="2" />
+    <Property Name="ShowType" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Photos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PicUrl" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Cont" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="BelongToArticles" Type="int" />
+  </EntityType>
+  <EntityType Name="RecArticles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArticleId" Type="int" Nullable="false" />
+    <Property Name="PosId" Type="int" Nullable="false" />
+    <Property Name="Weight" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SelfSlogo" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="SelfPhoto" Type="varchar" MaxLength="200" />
+    <Property Name="LastLoginTime" Type="datetime" />
+    <Property Name="AboutMe" Type="varchar" MaxLength="8000" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“Blog.dbo.View_Gallery”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="View_Gallery">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="PosId" />
+      <PropertyRef Name="Weight" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="200" />
+    <Property Name="ReadTimes" Type="int" />
+    <Property Name="Tags" Type="varchar" MaxLength="500" />
+    <Property Name="SimpleInfo" Type="varchar" MaxLength="500" />
+    <Property Name="Cont" Type="varchar(max)" />
+    <Property Name="MainPicUrl" Type="varchar" MaxLength="500" />
+    <Property Name="Source" Type="varchar" MaxLength="500" />
+    <Property Name="Type" Type="varchar" MaxLength="100" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="PubTime" Type="datetime" />
+    <Property Name="IsPub" Type="char" MaxLength="2" />
+    <Property Name="ShowType" Type="varchar" MaxLength="10" />
+    <Property Name="PosId" Type="int" Nullable="false" />
+    <Property Name="Weight" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="BlogModelStoreContainer">
+    <EntitySet Name="Articles" EntityType="Self.Articles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecArticles" EntityType="Self.RecArticles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="View_Gallery" EntityType="Self.View_Gallery" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Gallery].[Id] AS [Id], 
+    [View_Gallery].[Title] AS [Title], 
+    [View_Gallery].[ReadTimes] AS [ReadTimes], 
+    [View_Gallery].[Tags] AS [Tags], 
+    [View_Gallery].[SimpleInfo] AS [SimpleInfo], 
+    [View_Gallery].[Cont] AS [Cont], 
+    [View_Gallery].[MainPicUrl] AS [MainPicUrl], 
+    [View_Gallery].[Source] AS [Source], 
+    [View_Gallery].[Type] AS [Type], 
+    [View_Gallery].[CreateTime] AS [CreateTime], 
+    [View_Gallery].[PubTime] AS [PubTime], 
+    [View_Gallery].[IsPub] AS [IsPub], 
+    [View_Gallery].[ShowType] AS [ShowType], 
+    [View_Gallery].[PosId] AS [PosId], 
+    [View_Gallery].[Weight] AS [Weight]
+    FROM [dbo].[View_Gallery] AS [View_Gallery]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

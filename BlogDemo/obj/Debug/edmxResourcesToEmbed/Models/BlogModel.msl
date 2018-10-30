@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BlogModelStoreContainer" CdmEntityContainer="BlogEntities">
+    <EntitySetMapping Name="Articles">
+      <EntityTypeMapping TypeName="BlogModel.Articles">
+        <MappingFragment StoreEntitySet="Articles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ReadTimes" ColumnName="ReadTimes" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="SimpleInfo" ColumnName="SimpleInfo" />
+          <ScalarProperty Name="Cont" ColumnName="Cont" />
+          <ScalarProperty Name="MainPicUrl" ColumnName="MainPicUrl" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="PubTime" ColumnName="PubTime" />
+          <ScalarProperty Name="IsPub" ColumnName="IsPub" />
+          <ScalarProperty Name="ShowType" ColumnName="ShowType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="BlogModel.Photos">
+        <MappingFragment StoreEntitySet="Photos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="Cont" ColumnName="Cont" />
+          <ScalarProperty Name="BelongToArticles" ColumnName="BelongToArticles" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecArticles">
+      <EntityTypeMapping TypeName="BlogModel.RecArticles">
+        <MappingFragment StoreEntitySet="RecArticles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+          <ScalarProperty Name="PosId" ColumnName="PosId" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="BlogModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="SelfSlogo" ColumnName="SelfSlogo" />
+          <ScalarProperty Name="SelfPhoto" ColumnName="SelfPhoto" />
+          <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+          <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_Gallery">
+      <EntityTypeMapping TypeName="BlogModel.View_Gallery">
+        <MappingFragment StoreEntitySet="View_Gallery">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ReadTimes" ColumnName="ReadTimes" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="SimpleInfo" ColumnName="SimpleInfo" />
+          <ScalarProperty Name="Cont" ColumnName="Cont" />
+          <ScalarProperty Name="MainPicUrl" ColumnName="MainPicUrl" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="PubTime" ColumnName="PubTime" />
+          <ScalarProperty Name="IsPub" ColumnName="IsPub" />
+          <ScalarProperty Name="ShowType" ColumnName="ShowType" />
+          <ScalarProperty Name="PosId" ColumnName="PosId" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
